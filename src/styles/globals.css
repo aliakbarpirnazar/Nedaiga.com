@@ -12,7 +12,7 @@
 
 
 body {
-  background: var(--background-gradient);
+  background:#0f0f0f;
   color: var(--foreground);
   font-family: 'Open Sans', Arial, sans-serif;
   margin: 0;

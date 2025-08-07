@@ -12,8 +12,8 @@ export default function Home({ sectionRef, toggleMenu }) {
       <AboutUsPage />
       <ServicesSection />
       {/* <OurPartnersPage /> */}
-      <WhyChooseUsSection />
       <FullImageSection />
+      <WhyChooseUsSection />
     </>
   );
 }

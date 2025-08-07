@@ -10,7 +10,7 @@ export default function OurPartnersPage() {
           </h2> 
         </div>
         <div className="space-y-5 text-sm sm:text-base text-gray-300 leading-relaxed text-justify">
-          <p>
+          {/* <p>
             Iran Ofogh Industry Development Company (IOID)
           </p>
           <p>
@@ -30,12 +30,12 @@ export default function OurPartnersPage() {
           </p>
           <p>
            Petropars Operation & Management Company (POMC)  
-          </p>
+          </p> */}
         </div>
       </div>
 
 
-      <div className="max-w-6xl mx-auto grid grid-cols-5 sm:grid-cols-5 lg:grid-cols-5 gap-2">
+      <div className="max-w-6xl bg-[#0f0f0f] mx-auto grid grid-cols-5 sm:grid-cols-5 lg:grid-cols-5 gap-2">
         <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
           <img src="/partners/jahan pars logo NEW.webp" alt="Jahan Pars Group Logo" className="w-full h-full object-contain p-1" />
         </div>
@@ -86,9 +86,6 @@ export default function OurPartnersPage() {
         </div>
          <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
           <img src="/partners/FUNd-logo.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
-        </div>
-        <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
-          <img src="/partners/IIESLogo.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
         </div>
         <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
           <img src="/partners/ibtc-blue-en.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function FullImageSection() {
   return (
-    <section className="bg-black" aria-label="Academic Engagement Section">
+    <section className="bg-black pt-8" aria-label="Academic Engagement Section">
       <div className="container mx-auto relative w-full h-[380px] sm:h-[650px] md:h-[700px] lg:h-[770px] rounded-xl bg-no-repeat bg-cover bg-center">
 
      
