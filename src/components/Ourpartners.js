@@ -81,14 +81,14 @@ export default function OurPartnersPage() {
          <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
           <img src="/partners/OELG-logo.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
         </div>
+        <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
+          <img src="/partners/ibtc-blue-en.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
+        </div>
          <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
           <img src="/partners/MINI-logo.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
         </div>
          <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
           <img src="/partners/FUNd-logo.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
-        </div>
-        <div className="w-full h-22 sm:h-38 lg:h38 rounded-xl flex items-center justify-center overflow-hidden">
-          <img src="/partners/ibtc-blue-en.webp" alt="Petropars Operation & Management Logo" className="w-full h-full object-contain p-1" />
         </div>
         
        

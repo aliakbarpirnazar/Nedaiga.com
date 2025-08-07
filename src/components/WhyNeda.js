@@ -1,14 +1,14 @@
 export default function WhyChooseUsSection() {
   return (
     <section
-      className="w-full bg-[#0f0f0f] text-left text-gray-200 sm:p-0 px-3 my-10 py-12"
+      className="w-full bg-[#f8f1f1] text-left text-[#161616] px-3 pb-6 "
       aria-labelledby="why-choose-neda-heading"
     >
-      <div className="max-w-4xl mx-auto space-y-10">
+      <div className="max-w-4xl pt-4 space-y-10">
         {/* تیتر اصلی با id و نقش معنایی */}
         <h2
           id="why-choose-neda-heading"
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#161616]"
         >
           Why Choose NEDA Group
         </h2>
@@ -55,11 +55,11 @@ export default function WhyChooseUsSection() {
             <article key={index} aria-labelledby={`why-neda-${index}`}>
               <h3
                 id={`why-neda-${index}`}
-                className="text-xl sm:text-2xl font-semibold text-white mb-2"
+                className="text-xl sm:text-2xl font-semibold text-[#161616] mb-2"
               >
                 {item.title}
               </h3>
-              <p className="text-base text-gray-300 leading-relaxed">
+              <p className="text-base text-[#161616] leading-relaxed">
                 {item.desc}
               </p>
             </article>
