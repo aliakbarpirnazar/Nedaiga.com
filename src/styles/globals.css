@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  --background-gradient: linear-gradient(#0f0f0f);
+  --foreground: #f0f0f0;
+  --link-hover: #38bdf8;
+  --accent: #10b981;
+  --secondary-text: #cccccc;
+}
+
+
+body {
+  background: var(--background-gradient);
+  color: var(--foreground);
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;  
+}
+
+
+a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+/* در فایل CSS خودت یا در یک فایل global.css اضافه کن */
+.scale-up {
+  transform: scale(0);
+  animation: scaleUpAnim 0.7s forwards ease-out;
+}
+
+@keyframes scaleUpAnim {
+  to {
+    transform: scale(1);
+  }
+}

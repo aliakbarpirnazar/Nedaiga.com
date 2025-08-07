@@ -1,0 +1,7 @@
+# جلوگیری از آپلود فایل‌های حجیم یا غیرضروری
+node_modules/
+.next/
+.next.zip
+.env
+.DS_Store
+*.log
