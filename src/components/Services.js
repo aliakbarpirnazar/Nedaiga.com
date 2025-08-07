@@ -100,7 +100,7 @@ export default function ServicesSection() {
 
   return (
     <section className="px-4 sm:px-8 py-4 bg-black rounded-md text-white">
-      <h2 className="text-2xl sm:text-4xl font-bold mb-8">Our Services</h2>
+      <h2 className="text-xl sm:text-xl font-bold mb-8">Our Services</h2>
 
       <div
         ref={scrollRef}

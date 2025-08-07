@@ -1,6 +1,10 @@
 export default function AboutUsPage() {
   return (
- <section className="container mx-auto">
+ <section className="bg-[#f8f1f1]">
+  <div className="container mx-auto">
+
+ 
+
        <div className="w-full px-6 py-4 bg-gradient  bg-[#f8f1f1] text-left text-[#161616]">
         <div className="space-y-5 text-sm sm:text-base text-[#161616] leading-relaxed ">          
           <h3 className="text-xl sm:text-xl font-bold text-[#161616] ">
@@ -38,6 +42,7 @@ export default function AboutUsPage() {
           
         </div>
        </div>
+        </div>
       </section>
   );
 }
