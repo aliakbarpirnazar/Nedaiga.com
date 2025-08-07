@@ -3,13 +3,13 @@ export default function AboutUsPage() {
  <section className="container mx-auto">
        <div className="w-full px-6 py-4 bg-gradient  bg-[#f8f1f1] text-left text-[#161616]">
         <div className="space-y-5 text-sm sm:text-base text-[#161616] leading-relaxed ">          
-          <h3 className="text-xl sm:text-2xl font-bold text-[#161616] ">
+          <h3 className="text-xl sm:text-xl font-bold text-[#161616] ">
            ABOUT US
           </h3> 
         </div>
         <div className="container py-8 max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           <article className=" space-y-5 text-sm sm:text-base text-[#161616] leading-relaxed ">
-            <h1 className="text-xl sm:text-4xl font-bold text-[#161616] ">
+            <h1 className="text-xl sm:text-xl font-bold text-[#161616] ">
               Neda Group is a privately owned Iranian consultancy firm, established in July 2018.
             </h1>
             <p>
