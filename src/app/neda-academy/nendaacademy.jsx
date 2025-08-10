@@ -7,7 +7,7 @@ export default function NedaAcademySection() {
         <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           NEDA Academy
         </h1></div>
-    <div className="col-span-12 ">
+    <div className="col-span-12 text-justify ">
        <p className="text-base sm:text-lg leading-relaxed sm:text-left">
           <strong>The NEDA Academy</strong> is a dedicated division focused on advancing industry knowledge and developing technical capabilities for professionals across the <strong>energy</strong> and <strong>upstream sectors</strong>. Our distinguished instructors, many of whom are affiliated with leading national institutions, provide specialized guidance in critical areas such as the <strong>Iranian Petroleum Contract (IPC)</strong>, regulatory frameworks, risk management, and commercial strategy.
           <br /><br />
@@ -18,7 +18,7 @@ export default function NedaAcademySection() {
 
     </div>
     {/* <div className="col-span-12 ">3</div> */}
-    <div className="col-span-12 ">  
+    <div className="col-span-12">  
       <div className="space-y-4">
           <h2 className="text-xl sm:text-2xl font-semibold text-white mt-6">
             Key Academic and Industry Contributions

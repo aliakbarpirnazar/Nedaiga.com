@@ -8,8 +8,8 @@ export default function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   // تنظیمات کارت و گروه بندی دات‌ها
-  const cardWidth = 450; // عرض حدودی هر کارت
-  const groupSize = 2; // چند کارت در هر گروه؟
+  const cardWidth = 350; // عرض حدودی هر کارت
+  const groupSize = 3.2; // چند کارت در هر گروه؟
 
 
   const services = [
@@ -117,7 +117,7 @@ export default function ServicesSection() {
               <article
                 key={idx}
                 onClick={() => handleClick(idx)}
-                className="relative w-64 sm:w-80 md:w-[400px] lg:w-[440px] h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] bg-gray-900 rounded-xl overflow-hidden group shrink-0 cursor-pointer select-none"
+                className="relative w-64 h-[220px]  md:w-[200px] md:h-[320px] lg:w-[340px] lg:h-[360px]  sm:h-[280px] sm:w-80   bg-gray-900 rounded-xl overflow-hidden group shrink-0 cursor-pointer select-none"
               >
                 <img
                   src={service.img}
@@ -139,7 +139,7 @@ export default function ServicesSection() {
                   </h3>
                 </div>
                 <div
-                  className={`absolute inset-0 z-20 text-l text-justify text-left sm:text-xs md:text-xl text-gray-200 transition-opacity duration-300 px-3 py-8 flex items-center justify-center text-center leading-relaxed ${
+                  className={`absolute inset-0 z-20 text-left text-[11px]  lg:text-[16px] md:text-[16px] sm:text-[16px] text-gray-200 transition-opacity duration-300 px-3 py-8 flex items-center justify-center text-center leading-relaxed ${
                     isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                   }`}
                 >

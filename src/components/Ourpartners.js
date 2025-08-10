@@ -2,15 +2,16 @@ export default function OurPartnersPage() {
   return (
     <section className="container mx-auto" >
       <div className="w-full px-6 py-12 bg-gradient from-[#0f0f0f] to-[#1a1a1a] text-[#f0f0f0] ">      
-      {/* <p className="text-xs text-gray-600 mb-15">/Our partners</p> */}
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">        
+      <h2 className="text-xl sm:text-4xl font-bold  text-white text-center">Clients</h2>
+      {/* <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">   
+             
         <div className="space-y-5 text-sm sm:text-base text-gray-300 leading-relaxed ">          
-          <h2 className="text-xl sm:text-4xl font-bold text-white ">
-           Our partners
+          <h2 className="text-xl sm:text-4xl font-bold  text-white ">
+           Clients
           </h2> 
         </div>
         <div className="space-y-5 text-sm sm:text-base text-gray-300 leading-relaxed text-justify">
-          {/* <p>
+           <p>
             Iran Ofogh Industry Development Company (IOID)
           </p>
           <p>
@@ -30,9 +31,9 @@ export default function OurPartnersPage() {
           </p>
           <p>
            Petropars Operation & Management Company (POMC)  
-          </p> */}
+          </p> 
         </div>
-      </div>
+      </div> */}
 
 
       <div className="max-w-6xl bg-[#0f0f0f] mx-auto grid grid-cols-5 sm:grid-cols-5 lg:grid-cols-5 gap-2">

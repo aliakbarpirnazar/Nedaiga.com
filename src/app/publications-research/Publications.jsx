@@ -18,7 +18,7 @@ export default function PublicationsPage() {
           Academic Articles & Papers
         </h2>
 
-        <ul className="space-y-4">
+        <ul className="space-y-4 ">
           {/* نمونه مقالات - عناوین با استایل سئو مناسب */}
           <li>
             <p>

@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
         
         {/* لوگو و توضیح */}
-        <div className="flex flex-col items-start space-y-8">
+        <div className="flex flex-col items-start space-y-2">
           <Image
             src="/logo.webp" 
             alt="Neda Group Logo"
@@ -90,7 +90,7 @@ export default function Footer() {
             className="object-contain"
           />
           <p className="text-xs text-gray-400 max-w-xs">
-            Internatinal I group of advisors 
+           Neda Internatinal Group of Advisors 
           </p>
            <p className="text-xs text-gray-400 max-w-xs">
             گروه مشاوران بین الملل ندا
