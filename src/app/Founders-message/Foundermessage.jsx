@@ -1,12 +1,16 @@
 export default function Foundersmessage() {
   return (
-    <section className="w-full bg-[#0f0f0f] text-gray-200 px-6 py-12">
-      <div className="max-w-5xl mx-auto space-y-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-          Founder’s Message
-        </h1>
+    <section className="container mx-auto bg-[#0f0f0f] text-left text-gray-200 px-6 py-12">
 
-        <article className="text-base sm:text-lg leading-relaxed text-justify sm:text-left space-y-6">
+
+
+<div className="grid grid-cols-12 gap-4">
+    <div className="col-span-6 col-start-4">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+           Founder’s Message
+        </h1></div>
+    <div className="col-span-12 text-justify ">
+       <article className="text-base sm:text-lg leading-relaxed text-justify sm:text-left space-y-6">
           <p>
             I was born into an oil & gas family—nearly every member of my extended family worked in the energy sector.
             From early childhood, I was immersed in the language of contracts, the culture of projects, and the rhythms of negotiation.
@@ -45,7 +49,9 @@ export default function Foundersmessage() {
             Founder, NEDA International Group of Advisors
           </p>
         </article>
-      </div>
+    </div>
+    </div>
+
     </section>
   );
 }

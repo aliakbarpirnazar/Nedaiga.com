@@ -2,23 +2,26 @@
 
 export default function PublicationsPage() {
   return (
-    <section className="w-full bg-[#0f0f0f] text-left text-gray-200 px-6 py-12">
-      <div className="max-w-5xl mx-auto space-y-8">
-        <h1 className="text-3xl font-bold mb-6 text-white">
-          Publications & Research
-        </h1>
+    <section className="container mx-auto bg-[#0f0f0f] text-left text-gray-200 px-6 py-12">
 
-        <h2 className="text-2xl font-semibold mb-2 text-white">Books:</h2>
+
+
+
+    <div className="grid grid-cols-12 gap-4">
+    <div className="col-span-6 col-start-4">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+         Publications & Research
+        </h1></div>
+    <div className="col-span-12 text-justify ">
+       <h2 className="text-2xl font-semibold mb-2 text-white">Books:</h2>
         <p className="mb-6">
           <strong>Oil and Gas Contracts, Market and Strategy</strong><br />
           A comprehensive 48-volume work published in 2016, focusing on the complex legal, contractual, and commercial frameworks of the global oil and gas industry. This collection serves as a reference point for practitioners and researchers working on upstream contracts, market analysis, and strategic project development.
         </p>
-
         <h2 className="text-2xl font-semibold mb-4 text-white">
           Academic Articles & Papers
         </h2>
-
-        <ul className="space-y-4 ">
+<ul className="space-y-4 ">
           {/* نمونه مقالات - عناوین با استایل سئو مناسب */}
           <li>
             <p>
@@ -130,7 +133,9 @@ export default function PublicationsPage() {
             Journal of Politics & Law – PDF
           </a>
         </div>
-      </div>
+
+    </div>
+    </div>
     </section>
   );
 }
