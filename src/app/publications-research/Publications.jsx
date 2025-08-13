@@ -88,7 +88,7 @@ export default function PublicationsPage() {
             href="https://www.citizen.org/article/wto-general-exceptions-trade-laws-faulty-ivory-tower/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline block"
+            className="text-[#cccccc] hover:underline block"
           >
             WTO General Exceptions – Public Citizen
           </a>
@@ -96,7 +96,7 @@ export default function PublicationsPage() {
             href="https://www.researchgate.net/publication/369506328_Economic_Evaluation_of_Fiscal_Regime_of_Buy-Back_Contracts_in_Comparison_with_Production_Sharing_Contracts_Case_Study_Azadegan_Oil_Field"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline block"
+            className="text-[#cccccc] hover:underline block"
           >
             Buy-Back vs PSC: Azadegan Oil Field
           </a>
@@ -104,7 +104,7 @@ export default function PublicationsPage() {
             href="https://jjfil.ut.ac.ir/article_81072.html?lang=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline block"
+            className="text-[#cccccc] hover:underline block"
           >
             Iranian Contract Termination Study – UT Journal
           </a>
@@ -112,7 +112,7 @@ export default function PublicationsPage() {
             href="https://www.researchgate.net/publication/340925313_The_Effect_of_Submitting_Sales_in_Irans_Law_and_International_Sale_Convention"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline block"
+            className="text-[#cccccc] hover:underline block"
           >
             CISG and Iranian Sales Contracts
           </a>
@@ -120,7 +120,7 @@ export default function PublicationsPage() {
             href="https://doaj.org/article/f1404730dcc24863b557ed4fd0e9c306"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline block"
+            className="text-[#cccccc] hover:underline block"
           >
             Political Science & Law – DOAJ
           </a>
@@ -128,7 +128,7 @@ export default function PublicationsPage() {
             href="https://ccsenet.org/journal/index.php/jpl/article/download/61079/32726"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline block"
+            className="text-[#cccccc] hover:underline block"
           >
             Journal of Politics & Law – PDF
           </a>

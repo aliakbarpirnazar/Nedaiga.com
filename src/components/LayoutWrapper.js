@@ -5,9 +5,11 @@ import { useState, useEffect, useRef, cloneElement } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Home from "@/app/page";
+import FooterWith from "./FooterWith";
 
 export default function LayoutWrapper({ children }) {
  const pathname = usePathname();
+  const showSimpleFooter = pathname === "/" || pathname === "/Founders-message/";
   const isHomePage = pathname === "/";
   const sectionRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +17,7 @@ export default function LayoutWrapper({ children }) {
 
   const toggleMenu = () => setIsOpen((v) => !v);
   const closeMenu = () => setIsOpen(false);
+
   useEffect(() => {
     if (!isHomePage) {
       setShowSmallLogo(true);
@@ -52,7 +55,9 @@ export default function LayoutWrapper({ children }) {
           : children}
       </main>
 
-      <Footer />
+      {showSimpleFooter ? <Footer /> : <FooterWith />}
+
+      {/* <Footer /> */}
     </>
   );
 }

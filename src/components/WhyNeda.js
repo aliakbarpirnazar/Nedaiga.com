@@ -4,25 +4,25 @@ export default function WhyChooseUsSection() {
       className="  bg-[#f8f1f1] text-[#686868] text-justify px-3 pb-6 "
       aria-labelledby="why-choose-neda-heading"
     >
-      <div className="container mx-auto ">
+      <div className="container mx-auto text-sm sm:text-base">
 
       
       <div className="max-w-4xl pt-4 space-y-10">
         {/* تیتر اصلی با id و نقش معنایی */}
         <h2
           id="why-choose-neda-heading"
-          className="text-xl sm:text-xl md:text-xl font-bold  text-[#686868]"
+          className="text-xl sm:text-xl font-bold  text-[#686868]"
         >
           Why Choose NEDA Group
         </h2>
 
         {/* پاراگراف معرفی با توضیح سئوپسند */}
-        <p className="text-base sm:text-lg leading-relaxed text-justify sm:text-left">
+        <p className="text-sm sm:text-base leading-relaxed text-justify sm:text-left">
           NEDA Group is a strategic partner for leading companies in the energy, renewables, mining, and industrial sectors. Discover the key reasons why organizations trust us to help them innovate, grow, and lead.
         </p>
 
         {/* ویژگی‌ها به صورت article معنایی */}
-        <div className="space-y-8">
+        <div className="space-y-7">
           {[
             {
               title: "Proven Industry Expertise",
@@ -58,11 +58,11 @@ export default function WhyChooseUsSection() {
             <article key={index} aria-labelledby={`why-neda-${index}`}>
               <h3
                 id={`why-neda-${index}`}
-                className="text-xl sm:text-2xl font-semibold  text-[#686868] mb-2"
+                className="text-xl sm:text-xl font-semibold  text-[#686868] mb-2"
               >
                 {item.title}
               </h3>
-              <p className="text-base  text-[#686868] leading-relaxed">
+              <p className="text-sm sm:text-base  text-[#686868] leading-relaxed">
                 {item.desc}
               </p>
             </article>

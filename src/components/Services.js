@@ -3,14 +3,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function ServicesSection() {
-  const scrollRef = useRef(null);
+   const scrollRef = useRef(null);
+  const trackRef  = useRef(null);
+
   const [activeDot, setActiveDot] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [totalDots, setTotalDots] = useState(1);
 
-  // تنظیمات کارت و گروه بندی دات‌ها
-  const cardWidth = 350; // عرض حدودی هر کارت
-  const groupSize = 3.2; // چند کارت در هر گروه؟
-
+  // برای درگ
+  const isDownRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollStartRef = useRef(0);
 
   const services = [
     {
@@ -55,48 +58,95 @@ export default function ServicesSection() {
     },
   ];
 
- 
- const totalDots = Math.ceil(services.length / groupSize);
+ const measure = () => {
+    const el = scrollRef.current;
+    if (!el) return;
 
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const scrollLeft = scrollRef.current.scrollLeft;
-    const index = Math.round(scrollLeft / (cardWidth * groupSize));
-    setActiveDot(index);
+    // تعداد «صفحات» = کل عرض اسکرول تقسیم بر عرض قابل‌دید
+    const pages = Math.ceil(el.scrollWidth / el.clientWidth) || 1;
+    setTotalDots(pages);
+
+    // همزمان ایندکس فعال رو هم از نو محاسبه کن
+    const idx = Math.round(el.scrollLeft / el.clientWidth);
+    setActiveDot(Math.min(Math.max(idx, 0), pages - 1));
   };
 
-  // Mouse drag scroll
-  let isDown = false;
-  let startX = 0;
-  let scrollLeft = 0;
+ const handleScroll = () => {
+  const el = scrollRef.current;
+  if (!el) return;
+  const idx = Math.round(el.scrollLeft / el.clientWidth);
+  setActiveDot(prev => {
+    const clamped = Math.min(Math.max(idx, 0), totalDots - 1);
+    return clamped === prev ? prev : clamped;
+  });
+};
 
+  // درگ با ماوس
   const handleMouseDown = (e) => {
-    isDown = true;
-    startX = e.pageX - (scrollRef.current?.offsetLeft || 0);
-    scrollLeft = scrollRef.current?.scrollLeft || 0;
+    const el = scrollRef.current;
+    if (!el) return;
+    isDownRef.current = true;
+    startXRef.current = e.pageX - el.offsetLeft;
+    scrollStartRef.current = el.scrollLeft;
   };
-
-  const handleMouseLeave = () => (isDown = false);
-  const handleMouseUp = () => (isDown = false);
-
+  const handleMouseLeave = () => { isDownRef.current = false; };
+  const handleMouseUp = () => { isDownRef.current = false; };
   const handleMouseMove = (e) => {
-    if (!isDown || !scrollRef.current) return;
+    const el = scrollRef.current;
+    if (!el || !isDownRef.current) return;
     e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    el.scrollLeft = scrollStartRef.current - walk;
   };
 
-  const handleClick = (index) => {
+  const handleCardClick = (index) => {
     setActiveIndex(prev => (prev === index ? null : index));
   };
 
-  useEffect(() => {
+  const goToDot = (i) => {
     const el = scrollRef.current;
     if (!el) return;
-    el.addEventListener('scroll', handleScroll);
-    return () => el.removeEventListener('scroll', handleScroll);
+    el.scrollTo({ left: i * el.clientWidth, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+     measure();
+  handleScroll(); // ← همین باعث میشه نقطه درست از همون اول تنظیم بشه
+
+  const el = scrollRef.current;
+  el?.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    measure();
+    handleScroll();
+  });
+    // اگر تصاویر هنوز لود نشده باشند، بعد از لود دوباره اندازه‌گیری کن
+    const imgs = trackRef.current?.querySelectorAll('img') || [];
+    const imgListeners = [];
+    imgs.forEach((img) => {
+      if (!img.complete) {
+        const fn = () => measure();
+        img.addEventListener('load', fn);
+        imgListeners.push({ img, fn });
+      }
+    });
+
+    // تغییرات Layout را هم رصد کن
+    let ro;
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(measure);
+      if (scrollRef.current) ro.observe(scrollRef.current);
+      if (trackRef.current) ro.observe(trackRef.current);
+    }
+
+    return () => {
+      el?.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', measure);
+      imgListeners.forEach(({ img, fn }) => img.removeEventListener('load', fn));
+      ro?.disconnect();
+    };
   }, []);
+
 
   return (
     <section className="px-4 sm:px-8 py-4 bg-black rounded-md text-white">
@@ -116,7 +166,7 @@ export default function ServicesSection() {
             return (
               <article
                 key={idx}
-                onClick={() => handleClick(idx)}
+                 onClick={() => handleCardClick(idx)}
                 className="relative w-64 h-[220px]  md:w-[200px] md:h-[320px] lg:w-[340px] lg:h-[360px]  sm:h-[280px] sm:w-80   bg-gray-900 rounded-xl overflow-hidden group shrink-0 cursor-pointer select-none"
               >
                 <img
@@ -155,9 +205,11 @@ export default function ServicesSection() {
 
       {/* Scroll dots */}
       <div className="mt-3 flex justify-center gap-2">
-        {[...Array(totalDots)].map((_, i) => (
+          {Array.from({ length: totalDots }).map((_, i) => (
           <span
             key={i}
+             onClick={() => goToDot(i)}
+             aria-label={`Go to slide ${i + 1}`}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
               activeDot === i ? 'bg-white scale-110' : 'bg-gray-500 opacity-50'
             }`}

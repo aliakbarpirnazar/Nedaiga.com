@@ -22,7 +22,7 @@ body {
 
 
 a {
-  color: var(--foreground);
+  
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.3s ease;

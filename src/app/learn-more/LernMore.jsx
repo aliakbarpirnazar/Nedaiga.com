@@ -4,8 +4,8 @@ export default function LearnMorePage() {
       {/* عکس بالای صفحه */}
 
 <div className="grid grid-cols-12 gap-6">
-    <div className="col-span-12 col-start-1 p-4 lg:col-span-6 lg:pl-8  md:col-span-6 md:pl-4 sm:col-span-12">
-        <h1 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-white">
+    <div className="col-span-12 col-start-1 p-8 lg:col-span-6 lg:pl-18  md:col-span-6 md:pl-10 sm:col-span-12">
+        <h1 className="text-center text-xl sm:text-xl md:text-2xl font-bold text-white">
            Academic Engagement & Professional Training
         </h1>
         <br/>
@@ -22,12 +22,12 @@ export default function LearnMorePage() {
          
          
     
-    <div className="col-span-12 p-4 lg:col-start-7 lg:pr-8 md:col-span-6 md:pr-4  ">
-        <div className="w-full h-[280px] sm:h-[250px] md:h-[300px] lg:h-[370px] bg-no-repeat bg-cover bg-center relative">
+    <div className="col-span-12 p-8 lg:col-start-7 lg:pr-18 md:col-span-6 md:pr-10  ">
+        <div className="w-full h-[280px] sm:h-[410px] md:h-[300px] lg:h-[380px] bg-no-repeat bg-cover bg-center relative">
         <img
           src="/service6.webp"
           alt="Training Programs by NEDA Group"
-          className="w-full h-full object-cover object-center rounded"
+          className="w-full h-full object-cover object-center rounded-2xl border border-gray-500"
         />
       </div>
     </div>

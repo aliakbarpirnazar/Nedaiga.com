@@ -27,7 +27,7 @@ export default function FullImageSection() {
           lg:left-[280px] lg:top-[450px]
         "
       >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
           Academic Engagement
         </h2>
         <Link

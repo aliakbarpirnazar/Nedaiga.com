@@ -1,3 +1,5 @@
+import { CheckIcon } from "lucide-react";
+
 export default function NedaAcademySection() {
   return (
    <section className="container mx-auto bg-[#0f0f0f] text-left text-gray-200 px-6 py-12">
@@ -31,17 +33,17 @@ export default function NedaAcademySection() {
               Member of specialized committee preparing Strategic Plan for Oil Industry Projects
             </li>
             <li>
-              Presenter at:
-              <ul className="list-disc list-inside ml-5 mt-1 space-y-1">
-                <li>Tehran Summit 2015</li>
-                <li>Iran Oil Industry Contracts Revision Forum 2014</li>
-                <li>Economist Committee, Iranian Mining House (IMH), 2016–2019</li>
+              Presenter at
+              <ul className="list-inside ml-5 mt-1 space-y-1 list-none">
+                <li  className="flex items-start gap-2"> <CheckIcon className="w-5 h-5 text-green-600 mt-0.5" /> Tehran Summit 2015</li>
+                <l  className="flex items-start gap-2">  <CheckIcon className="w-5 h-5 text-green-600 mt-0.5" /> Iran Oil Industry Contracts Revision Forum 2014</l>
+                <li  className="flex items-start gap-2">  <CheckIcon className="w-5 h-5 text-green-600 mt-0.5" /> Economist Committee, Iranian Mining House (IMH), 2016–2019</li>
               </ul>
             </li>
             <li>
-              Published and presented in:
+              Published and presented in
               <br />
-              <span className="block ml-4">
+              <span className="block ml-6">
                 MEET Journal, The Energy World Magazine, Institute for Energy Relations
               </span>
             </li>
