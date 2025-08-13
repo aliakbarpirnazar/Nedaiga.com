@@ -3,17 +3,18 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function ServicesSection() {
-   const scrollRef = useRef(null);
+  const scrollRef = useRef(null);
   const trackRef  = useRef(null);
 
   const [activeDot, setActiveDot] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
   const [totalDots, setTotalDots] = useState(1);
 
-  // برای درگ
+  // درگ
   const isDownRef = useRef(false);
   const startXRef = useRef(0);
   const scrollStartRef = useRef(0);
+
 
   const services = [
     {
@@ -57,29 +58,30 @@ export default function ServicesSection() {
       desc: "Identify, assess, and minimize business risks through expert training."
     },
   ];
+  
+  
+  
+  // بدون اتکا به state محاسبه کن
+  const calcPages = (el) => Math.ceil(el.scrollWidth / el.clientWidth) || 1;
+  const calcIndex = (el) => Math.round(el.scrollLeft / el.clientWidth);
 
- const measure = () => {
+  const measure = () => {
     const el = scrollRef.current;
     if (!el) return;
-
-    // تعداد «صفحات» = کل عرض اسکرول تقسیم بر عرض قابل‌دید
-    const pages = Math.ceil(el.scrollWidth / el.clientWidth) || 1;
+    const pages = calcPages(el);
     setTotalDots(pages);
-
-    // همزمان ایندکس فعال رو هم از نو محاسبه کن
-    const idx = Math.round(el.scrollLeft / el.clientWidth);
-    setActiveDot(Math.min(Math.max(idx, 0), pages - 1));
+    const idx = calcIndex(el);
+    setActiveDot(Math.max(0, Math.min(idx, pages - 1)));
   };
 
- const handleScroll = () => {
-  const el = scrollRef.current;
-  if (!el) return;
-  const idx = Math.round(el.scrollLeft / el.clientWidth);
-  setActiveDot(prev => {
-    const clamped = Math.min(Math.max(idx, 0), totalDots - 1);
-    return clamped === prev ? prev : clamped;
-  });
-};
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const pages = calcPages(el);       // ← از DOM بگیر، نه از state
+    const idx = calcIndex(el);
+    const clamped = Math.max(0, Math.min(idx, pages - 1));
+    setActiveDot((prev) => (prev === clamped ? prev : clamped));
+  };
 
   // درگ با ماوس
   const handleMouseDown = (e) => {
@@ -111,42 +113,45 @@ export default function ServicesSection() {
   };
 
   useEffect(() => {
-     measure();
-  handleScroll(); // ← همین باعث میشه نقطه درست از همون اول تنظیم بشه
+    const el = scrollRef.current;
+    if (!el) return;
 
-  const el = scrollRef.current;
-  el?.addEventListener('scroll', handleScroll, { passive: true });
-  window.addEventListener('resize', () => {
+    const onResize = () => {
+      measure();
+      handleScroll();
+    };
+
     measure();
     handleScroll();
-  });
-    // اگر تصاویر هنوز لود نشده باشند، بعد از لود دوباره اندازه‌گیری کن
+
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+
+    // بعد از لود شدن تصاویر هم دوباره
     const imgs = trackRef.current?.querySelectorAll('img') || [];
     const imgListeners = [];
     imgs.forEach((img) => {
       if (!img.complete) {
-        const fn = () => measure();
+        const fn = () => { measure(); handleScroll(); };
         img.addEventListener('load', fn);
         imgListeners.push({ img, fn });
       }
     });
 
-    // تغییرات Layout را هم رصد کن
     let ro;
     if (typeof ResizeObserver !== 'undefined') {
-      ro = new ResizeObserver(measure);
-      if (scrollRef.current) ro.observe(scrollRef.current);
-      if (trackRef.current) ro.observe(trackRef.current);
+      ro = new ResizeObserver(() => { measure(); handleScroll(); });
+      ro.observe(scrollRef.current);
+      trackRef.current && ro.observe(trackRef.current);
     }
 
     return () => {
-      el?.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', measure);
+      el.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', onResize);
       imgListeners.forEach(({ img, fn }) => img.removeEventListener('load', fn));
       ro?.disconnect();
     };
   }, []);
-
 
   return (
     <section className="px-4 sm:px-8 py-4 bg-black rounded-md text-white">
@@ -160,8 +165,8 @@ export default function ServicesSection() {
         onMouseMove={handleMouseMove}
         className="overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing"
       >
-        <div className="container flex gap-6 sm:gap-8 md:gap-10 w-max">
-          {services.map((service, idx) => {
+        <div ref={trackRef} className="container flex gap-6 sm:gap-8 md:gap-10 w-max">
+         {services.map((service, idx) => {
             const isActive = activeIndex === idx;
             return (
               <article
