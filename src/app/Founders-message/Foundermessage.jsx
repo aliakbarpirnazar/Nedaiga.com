@@ -42,8 +42,7 @@ export default function Foundersmessage() {
           </p>
 
           <p className="pt-4">
-            <strong>Warm regards,</strong>
-            <br />
+           
             Aye Katebi
             <br />
             Founder, NEDA International Group of Advisors
